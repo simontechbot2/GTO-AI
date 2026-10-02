@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0d0d0d">
+  <title>GTO AI</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/chat.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+  <div id="app">
+
+    <aside id="sidebar" class="sidebar">
+
+      <div class="sidebar-header">
+        <div class="brand">
+          <span class="brand-icon">G</span>
+          <span>GTO AI</span>
+        </div>
+
+        <button id="closeSidebar" class="icon-button">
+          ×
+        </button>
+      </div>
+
+      <button id="newChat" class="new-chat">
+        ＋ New chat
+      </button>
+
+      <div class="history-label">
+        Recent chats
+      </div>
+
+      <div id="history" class="history"></div>
+
+      <div class="sidebar-footer">
+        <button id="settingsButton" class="sidebar-button">
+          ⚙ Settings
+        </button>
+
+        <button id="adminButton" class="sidebar-button">
+          👑 Admin
+        </button>
+      </div>
+
+    </aside>
+
+    <main class="main">
+
+      <header class="topbar">
+
+        <button id="openSidebar" class="icon-button mobile-only">
+          ☰
+        </button>
+
+        <div class="model-selector">
+
+          <button id="modelButton" class="model-button">
+            <span id="selectedModel">GTO AI</span>
+            <span>⌄</span>
+          </button>
+
+          <div id="modelMenu" class="model-menu hidden">
+
+            <button data-model="provider-a">
+              GTO Fast
+            </button>
+
+            <button data-model="provider-b">
+              GTO Reasoning
+            </button>
+
+            <button data-model="provider-c">
+              GTO Pro
+            </button>
+
+          </div>
+
+        </div>
+
+        <button id="themeButton" class="icon-button">
+          ☼
+        </button>
+
+      </header>
+
+      <section id="chatArea" class="chat-area">
+
+        <div id="welcome" class="welcome">
+
+          <div class="logo-large">
+            G
+          </div>
+
+          <h1>How can I help you?</h1>
+
+          <p>
+            Ask GTO AI anything.
+          </p>
+
+          <div class="suggestions">
+
+            <button data-prompt="Explain this topic simply">
+              💡 Explain something
+            </button>
+
+            <button data-prompt="Help me write something">
+              ✍️ Help me write
+            </button>
+
+            <button data-prompt="Help me debug my code">
+              💻 Debug code
+            </button>
+
+            <button data-prompt="Give me ideas for a project">
+              🚀 Brainstorm ideas
+            </button>
+
+          </div>
+
+        </div>
+
+        <div id="messages"></div>
+
+      </section>
+
+      <div class="composer-container">
+
+        <form id="chatForm" class="composer">
+
+          <button
+            type="button"
+            id="uploadButton"
+            class="composer-button"
+          >
+            ＋
+          </button>
+
+          <input
+            type="file"
+            id="fileInput"
+            hidden
+            multiple
+          >
+
+          <textarea
+            id="messageInput"
+            placeholder="Message GTO AI..."
+            rows="1"
+          ></textarea>
+
+          <button
+            type="submit"
+            id="sendButton"
+            class="send-button"
+          >
+            ➤
+          </button>
+
+        </form>
+
+        <div id="filePreview" class="file-preview"></div>
+
+        <p class="disclaimer">
+          GTO AI may make mistakes. Check important information.
+        </p>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="js/models.js"></script>
+  <script src="js/history.js"></script>
+  <script src="js/upload.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+  </html>
