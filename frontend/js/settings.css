@@ -1,0 +1,39 @@
+const settings = {
+  theme:
+    localStorage.getItem("gto-theme") || "dark"
+};
+
+function applyTheme() {
+
+  document.body.classList.toggle(
+    "dark",
+    settings.theme === "dark"
+  );
+}
+
+function toggleTheme() {
+
+  settings.theme =
+    settings.theme === "dark"
+      ? "light"
+      : "dark";
+
+  localStorage.setItem(
+    "gto-theme",
+    settings.theme
+  );
+
+  applyTheme();
+}
+
+function setupSettings() {
+
+  const button =
+    document.getElementById("themeButton");
+
+  if (button) {
+    button.onclick = toggleTheme;
+  }
+
+  applyTheme();
+    }
