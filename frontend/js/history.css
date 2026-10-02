@@ -1,0 +1,49 @@
+let conversations =
+  JSON.parse(localStorage.getItem("gto-history") || "[]");
+
+function saveConversations() {
+  localStorage.setItem(
+    "gto-history",
+    JSON.stringify(conversations)
+  );
+}
+
+function createConversation() {
+  return {
+    id: crypto.randomUUID(),
+    title: "New chat",
+    messages: [],
+    createdAt: Date.now()
+  };
+}
+
+function addConversation(conversation) {
+  conversations.push(conversation);
+  saveConversations();
+  renderHistory();
+}
+
+function renderHistory() {
+  const history = document.getElementById("history");
+
+  if (!history) return;
+
+  history.innerHTML = "";
+
+  [...conversations]
+    .reverse()
+    .forEach(conversation => {
+
+      const button = document.createElement("button");
+
+      button.className = "history-item";
+      button.textContent =
+        conversation.title || "New chat";
+
+      button.onclick = () => {
+        window.loadConversation(conversation.id);
+      };
+
+      history.appendChild(button);
+    });
+    }
