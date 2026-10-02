@@ -1,0 +1,47 @@
+const uploadedFiles = [];
+
+function setupUpload() {
+
+  const button = document.getElementById("uploadButton");
+  const input = document.getElementById("fileInput");
+
+  if (!button || !input) return;
+
+  button.onclick = () => {
+    input.click();
+  };
+
+  input.onchange = () => {
+
+    uploadedFiles.length = 0;
+
+    for (const file of input.files) {
+      uploadedFiles.push(file);
+    }
+
+    renderFiles();
+  };
+}
+
+function renderFiles() {
+
+  const container =
+    document.getElementById("filePreview");
+
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  uploadedFiles.forEach(file => {
+
+    const item =
+      document.createElement("span");
+
+    item.className = "file-item";
+
+    item.textContent =
+      `📎 ${file.name}`;
+
+    container.appendChild(item);
+  });
+    }
