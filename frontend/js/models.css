@@ -1,0 +1,34 @@
+const GTO_MODELS = {
+  "provider-a": {
+    name: "GTO Fast",
+    provider: "provider-a"
+  },
+
+  "provider-b": {
+    name: "GTO Reasoning",
+    provider: "provider-b"
+  },
+
+  "provider-c": {
+    name: "GTO Pro",
+    provider: "provider-c"
+  }
+};
+
+let selectedModel =
+  localStorage.getItem("gto-model") || "provider-a";
+
+function setModel(model) {
+  if (!GTO_MODELS[model]) {
+    return;
+  }
+
+  selectedModel = model;
+  localStorage.setItem("gto-model", model);
+
+  const element = document.getElementById("selectedModel");
+
+  if (element) {
+    element.textContent = GTO_MODELS[model].name;
+  }
+}
